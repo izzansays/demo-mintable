@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# Demo Mintable
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assignment for Mintable, a React app for a marketplace to buy and sell NFTs.
 
-Currently, two official plugins are available:
+## Integration with alchemy-sdk
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Data is retrieved via alchemy's SDK and APIs to view an address and all the NFTs associated with it.
 
-## Expanding the ESLint configuration
+## React and Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+As Next JS data fetching doesn't allow for undefined in the response, I have used React and Vite instead. Each collection is on its own subdomain and clicking on a single NFT will lead to a new page for that token.
 
-- Configure the top-level `parserOptions` property like this:
+## Authentication with Clerk
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Authentication is handled by Clerk. Sign in details are as below.
+
+```json
+Email: test@example.com
+Password: demomintable
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+On Sign In, the user profile avatar will be shown. Clicking on it and selecting the account will link to the user page where the user would be able to view their NFTs in their wallet.
+
+## Missing features due to time constraints
+
+- Pagination/Fetching more data from API
+- Brand deals/offers
